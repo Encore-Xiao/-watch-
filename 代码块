@@ -1,0 +1,40 @@
+<script>
+export default {
+    data() {
+        return {
+            setMealId: 0,
+            setMealTypes: [
+                {type: ‘A‘, newPrice: 255, oldPrice: 752},
+                {type: ‘B‘, newPrice: 120, oldPrice: 560},
+                {type: ‘C‘, newPrice: 325, oldPrice: 699},
+            ],
+            setMealItems: [
+                {imgSrc: require(‘../../../static/setMeal/setMeal_icon_02.png‘), txt: ‘特制营养早餐‘, info: ‘免费‘},
+                {imgSrc: require(‘../../../static/setMeal/setMeal_icon_03.png‘), txt: ‘检中医护免费咨询‘, info: ‘现场‘},
+                {imgSrc: require(‘../../../static/setMeal/setMeal_icon_04.png‘), txt: ‘主检医生总结报告‘, info: ‘10日‘}
+            ]
+        }
+    },
+    created() {
+        this.setMealId = this.$route.query.id;
+    },
+    watch: {
+//      ‘$route‘ (to, from) {
+//          if(to.query.id !== from.query.id){
+//              location.reload();//此方法页面会空白再显示，交互体验不好
+//          }
+//      }
+        $route(){
+            this.setMealId = this.$route.query.id
+        },
+        setMealId() {
+            this.setMealDetail();
+        },
+    },
+    methods: {
+        setMealDetail() {
+            //axios请求
+        }
+    }
+}
+</script>
